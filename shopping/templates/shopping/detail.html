@@ -1,0 +1,17 @@
+{% extends 'shopping/base.html' %}
+{% load static %}
+
+{% block title %}立即购买-小米商城{% endblock %}
+
+{% block content %}
+    <h2>{{ goods.name }}</h2>
+    <p>{{ goods.description }}</p>
+    <img src="{{ goods.image.url }}" alt="">
+    {% if goods.stock %}
+        <p>库存{{ goods.stock }}</p>
+    {% else %}
+        <p>暂时缺货</p>
+    {% endif %}
+
+    <h4>{{ goods.price|cut:'.0000' }}元</h4>
+{% endblock %}

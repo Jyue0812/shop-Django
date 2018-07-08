@@ -1,0 +1,23 @@
+{% extends 'shopping/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% for k, v in typegoods %}
+        <h2>{{ k.name }}</h2>
+        <img src="{{ k.image.url }}" alt="{{ k.name }}">
+
+        {% for a in v %}
+            <h3>
+                <a href="{% url 'shopping:detail' k.id a.id %}">
+                    {{ a.name }}
+                </a>
+            </h3>
+            <p>{{ a.description }}</p>
+            <br>
+            <img src="{{ a.image.url }}" alt="{{ a.name }}">
+            <br>
+            <h4>{{ a.price| cut:'.0000' }}元</h4>
+            <br>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

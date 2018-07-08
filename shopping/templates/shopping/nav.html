@@ -1,0 +1,8 @@
+<nav>
+    <a href="{% url 'shopping:index' %}">所有商品</a>
+    {% for foo in contents %}
+        <a href="{% url 'shopping:singlepage' foo.id %}">{{ foo.name }}</a>
+    {% endfor %}
+
+    <a href="#">购物车</a>
+</nav>
